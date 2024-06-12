@@ -26,6 +26,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { SelectComponent } from './components/select/select.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { DescriptionsComponent } from './components/descriptions/descriptions.component';
+
 
 
 
@@ -43,6 +46,7 @@ registerLocaleData(en);
     HomeComponent,
     FileComponent,
     SelectComponent,
+    DescriptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ registerLocaleData(en);
     NzFormModule,
     NzInputModule,
     NzTableModule,
-    NzButtonModule
+    NzButtonModule,
+    NzDescriptionsModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

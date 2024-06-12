@@ -16,17 +16,22 @@ export class FileComponent {
     'Man charged over missing wedding girl.',
     'Los Angeles battles huge wildfires.',
   ];
-
   isVisible = false;
+  editedItem: string;
+  editedIndex: number;
 
   constructor() {}
 
-  showModal(): void {
+  showModal(index: number): void {
     this.isVisible = true;
+    this.editedItem = this.data[index];
+    this.editedIndex = index;
   }
 
   handleOk(): void {
     console.log('Button ok clicked!');
+
+    this.data[this.editedIndex] = this.editedItem;
     this.isVisible = false;
   }
 

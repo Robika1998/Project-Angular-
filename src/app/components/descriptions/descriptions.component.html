@@ -1,0 +1,95 @@
+
+
+<nz-descriptions
+  nzTitle="Custom Size"
+  [nzExtra]="extraTpl"
+  nzBordered
+  [nzSize]="size"
+>
+  <nz-descriptions-item nzTitle="Product">
+    <ng-container *ngIf="!isEditing; else editProduct">{{
+      product
+    }}</ng-container>
+    <ng-template #editProduct>
+      <input nz-input [(ngModel)]="product" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Billing">
+    <ng-container *ngIf="!isEditing; else editBilling">{{
+      billing
+    }}</ng-container>
+    <ng-template #editBilling>
+      <input nz-input [(ngModel)]="billing" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Time">
+    <ng-container *ngIf="!isEditing; else editTime">{{ time }}</ng-container>
+    <ng-template #editTime>
+      <input nz-input [(ngModel)]="time" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Amount">
+    <ng-container *ngIf="!isEditing; else editAmount">{{
+      amount
+    }}</ng-container>
+    <ng-template #editAmount>
+      <input nz-input [(ngModel)]="amount" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Discount">
+    <ng-container *ngIf="!isEditing; else editDiscount">{{
+      discount
+    }}</ng-container>
+    <ng-template #editDiscount>
+      <input nz-input [(ngModel)]="discount" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Official">
+    <ng-container *ngIf="!isEditing; else editOfficial">{{
+      official
+    }}</ng-container>
+    <ng-template #editOfficial>
+      <input nz-input [(ngModel)]="official" />
+    </ng-template>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Config Info">
+    <ng-container *ngIf="!isEditing; else editConfigInfo">
+      Data disk type: {{ configInfo.diskType }}<br />
+      Database version: {{ configInfo.dbVersion }}<br />
+      Package: {{ configInfo.package }}<br />
+      Storage space: {{ configInfo.storage }}<br />
+      Replication factor: {{ configInfo.replicationFactor }}<br />
+      Region: {{ configInfo.region }}<br />
+    </ng-container>
+    <ng-template #editConfigInfo>
+      Data disk type: <input nz-input [(ngModel)]="configInfo.diskType" /><br />
+      Database version:
+      <input nz-input [(ngModel)]="configInfo.dbVersion" /><br />
+      Package: <input nz-input [(ngModel)]="configInfo.package" /><br />
+      Storage space: <input nz-input [(ngModel)]="configInfo.storage" /><br />
+      Replication factor:
+      <input
+        nz-input
+        [(ngModel)]="configInfo.replicationFactor"
+        type="number"
+      /><br />
+      Region: <input nz-input [(ngModel)]="configInfo.region" /><br />
+    </ng-template>
+  </nz-descriptions-item>
+</nz-descriptions>
+<br />
+<br />
+<nz-descriptions nzTitle="Custom Size" [nzSize]="size" >
+  <nz-descriptions-item nzTitle="Product">{{ product }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Billing">{{ billing }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Time">{{ time }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Amount">{{ amount }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Discount">{{ discount }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Official">{{ official }}</nz-descriptions-item>
+  
+</nz-descriptions>
+<ng-template #extraTpl>
+    <button nz-button nzType="primary" (click)="toggleEdit()">
+        {{ isEditing ? "Save" : "Edit" }}
+      </button>
+</ng-template>

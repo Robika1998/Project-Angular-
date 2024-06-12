@@ -1,51 +1,57 @@
-
-
 <nz-layout class="sidebar">
-  <nz-sider   nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-  
-   <div   nz-menu nzTheme="dark"    [ngStyle]="{
-    'position': 'fixed',
-    'width': isCollapsed ? '80px' : '200px',
-    'height': '100vh'
-  }" > 
-    
-    <div class="logo">
-      <div
-        nz-icon
-        nzType="home"
-        nzTheme="outline"
-        (click)="navigateTo('/home')"
-      ></div>
-    </div>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div
+      nz-menu
+      nzTheme="dark"
+      [ngStyle]="{
+        position: 'fixed',
+        width: isCollapsed ? '80px' : '200px',
+        height: '100vh'
+      }"
+    >
+      <ul class="logo">
+        <span
+          nz-icon
+          nzType="trademark-circle"
+          nzTheme="outline"
+          (click)="navigateTo('/home')"
+        ></span>
+      </ul>
 
-    <ul  nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item (click)="navigateTo('/home')">
-        <span nz-icon nzType="user"></span>
-        <span>Home</span>
-      </li>
-      <li nz-menu-item (click)="navigateTo('/file')">
-        <span nz-icon nzType="file"></span>
-        <span>File</span>
-      </li>
-      <li nz-menu-item (click)="navigateTo('/select')">
-        <span nz-icon nzType="select"></span>
-        <span>Select</span>
-      </li>
-    </ul></div>
-    
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-menu-item (click)="navigateTo('/home')">
+          <span nz-icon nzType="home"></span>
+          <span>Home</span>
+        </li>
+        <li nz-menu-item (click)="navigateTo('/file')">
+          <span nz-icon nzType="file"></span>
+          <span>File</span>
+        </li>
+        <li nz-menu-item (click)="navigateTo('/select')">
+          <span nz-icon nzType="select"></span>
+          <span>Select</span>
+        </li>
+        <li nz-menu-item (click)="navigateTo('/description')">
+          <span nz-icon nzType="appstore-add"></span>
+          <span>Descriptions</span>
+        </li>
+      </ul>
+    </div>
   </nz-sider>
 
   <nz-layout>
-    <div class="header">
-      NewPage
-     </div>
+    <div class="header">{{ currentTitle }}</div>
     <nz-header>
-      <span
+      <div class="triggerHeader">
+        <span
         class="trigger"
         nz-icon
-        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        nzTheme="twotone"
+        [nzType]="isCollapsed ? 'plus-circle' : 'close-circle'"
         (click)="isCollapsed = !isCollapsed"
       ></span>
+      </div>
+   
     </nz-header>
     <nz-content>
       <nz-breadcrumb>

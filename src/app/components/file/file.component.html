@@ -1,30 +1,26 @@
-<h3 [ngStyle]="{ margin: '16px 0' }">Large Size</h3>
 <ul nz-list [nzDataSource]="data" nzBordered nzSize="large">
   <nz-list-header>Header</nz-list-header>
-  @for (item of data; track item) {
-  <li nz-list-item nzNoFlex>
-    <ul nz-list-item-actions>
-      <nz-list-item-action>
-        <a (click)="showModal()"
-          >Edit
-
-          <nz-modal
-            [(nzVisible)]="isVisible"
-            nzTitle="The first Modal"
-            (nzOnCancel)="handleCancel()"
-            (nzOnOk)="handleOk()"
-          >
-            <ng-container *nzModalContent>
-              <p>Content one</p>
-              <p>Content two</p>
-              <p>Content three</p>
-            </ng-container>
-          </nz-modal>
-        </a>
-      </nz-list-item-action>
-    </ul>
-    {{ item }}
-  </li>
-  }
+  <ng-container *ngFor="let item of data; let i = index">
+    <li nz-list-item nzNoFlex>
+      <ul nz-list-item-actions>
+        <nz-list-item-action>
+          <a (click)="showModal(i)">Edit</a>
+        </nz-list-item-action>
+      </ul>
+      {{ item }}
+    </li>
+  </ng-container>
   <nz-list-footer>Footer</nz-list-footer>
 </ul>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Edit Item"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent >
+ 
+    <textarea class="inputType" type="text" [(ngModel)]="editedItem" > </textarea>
+  </ng-container>
+</nz-modal>

@@ -1,11 +1,9 @@
 .sidebar {
   height: 100%;
   width: auto;
- 
-  
 }
 .trigger {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 64px;
   padding: 0 24px;
   cursor: pointer;
@@ -13,17 +11,18 @@
 }
 
 .trigger:hover {
-  color: red;
+  color: green;
 }
 
+
 .logo {
-  display: flex;
+  display: flow-root;
   justify-content: center;
   align-items: center;
 
   margin: 16px;
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
   cursor: pointer;
 }
@@ -47,18 +46,27 @@ nz-breadcrumb {
   padding: 24px;
   background: #fff;
   min-height: 360px;
-
 }
 
 nz-footer {
   text-align: center;
 }
 
-
-.header{
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+/* .fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
